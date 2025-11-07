@@ -65,58 +65,69 @@
         }
         .prev-btn { left: 10px; }
         .next-btn { right: 10px; }
+
+        /* NAVIGATION CIRCUIT TEXTURE CSS */
+        .nav-texture {
+            /* Circuit board pattern for a tech look */
+            background-image: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+            background-repeat: repeat;
+            background-size: auto;
+            
+            /* Blends the texture image with the dark maroon background color */
+            background-blend-mode: multiply; 
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <header class="bg-white shadow-md sticky top-0 z-10">
+    <header class="bg-red-900 shadow-md sticky top-0 z-10 nav-texture">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-gray-800">
-                <span class="text-red-900">Open Med</span> Tech
+            <h1 class="text-3xl font-extrabold text-white">
+                <span class="text-white">Open Med</span> Tech
             </h1>
 
             <nav id="desktop-nav" class="hidden md:flex space-x-2 lg:space-x-4">
-                <button id="tab-home-btn" data-tab="home" class="tab-button active px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition duration-150 hover:bg-red-100 hover:text-red-900">Home</button>
+                <button id="tab-home-btn" data-tab="home" class="tab-button active px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Home</button>
 
                 <div id="projects-dropdown" class="relative group">
-                    <button id="tab-projects-btn" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition duration-150 hover:bg-red-100 hover:text-red-900 flex items-center">
+                    <button id="tab-projects-btn" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white flex items-center">
                         Projects
-                        <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="white" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
 
-                    <div id="projects-menu" class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 hidden group-hover:block transition duration-200">
+                    <div id="projects-menu" class="absolute left-0 mt-2 w-48 bg-red-900 rounded-md shadow-lg py-1 z-20 hidden group-hover:block transition duration-200">
                         <a href="#OpenXamp" 
-                        data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXamp</a>
+                        data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXamp</a>
                         <a href="#OpenXstim" 
-                        data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXstim</a>
+                        data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXstim</a>
                         <a href="#OpenXhand" 
-                        data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXhand</a>
-                        <a href="#OpenXwheel" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXwheel</a>
-                        <a href="#OpenXstand" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXstand</a>
-                        <a href="#OpenXwalk" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-gray-700 hover:bg-red-100 hover:text-red-900" onclick="handleProjectClick(event)">OpenXwalk</a>
-                        <div class="border-t border-gray-100 my-1"></div>
-                        <a href="#research" data-tab="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-red-900 hover:bg-red-100" onclick="handleProjectClick(event)">All Projects</a>
+                        data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXhand</a>
+                        <a href="#OpenXwheel" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXwheel</a>
+                        <a href="#OpenXstand" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXstand</a>
+                        <a href="#OpenXwalk" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXwalk</a>
+                        <div class="border-t border-red-800 my-1"></div>
+                        <a href="#research" data-tab="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-white hover:bg-red-700" onclick="handleProjectClick(event)">All Projects</a>
                     </div>
                 </div>
-                <button id="tab-people-btn" data-tab="people" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition duration-150 hover:bg-red-100 hover:text-red-900">Contributors</button>
-                <button id="tab-publications-btn" data-tab="publications" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition duration-150 hover:bg-red-100 hover:text-red-900">Publications</button>
-                <button id="tab-contact-btn" data-tab="contact" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-gray-700 transition duration-150 hover:bg-red-100 hover:text-red-900">Contact</button>
+                <button id="tab-people-btn" data-tab="people" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contributors</button>
+                <button id="tab-publications-btn" data-tab="publications" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Publications</button>
+                <button id="tab-contact-btn" data-tab="contact" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contact</button>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition duration-150">
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-white hover:bg-red-700 transition duration-150">
                 <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </div>
 
-        <nav id="mobile-nav-menu" class="md:hidden hidden bg-white border-t border-gray-200 shadow-lg">
-            <button data-tab="home" class="mobile-nav-item active w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 transition duration-150 text-sm">Home</button>
+        <nav id="mobile-nav-menu" class="md:hidden hidden bg-red-900 border-t border-red-800 shadow-lg">
+            <button data-tab="home" class="mobile-nav-item active w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Home</button>
             
-            <button data-tab="research" class="mobile-nav-item w-full text-left px-4 py-3 font-bold text-red-900 bg-red-50 border-l-4 border-red-900 transition duration-150 text-sm">Projects (See All)</button>
+            <button data-tab="research" class="mobile-nav-item w-full text-left px-4 py-3 font-bold text-white bg-red-700 border-l-4 border-orange-500 transition duration-150 text-sm">Projects (See All)</button>
 
-            <button data-tab="people" class="mobile-nav-item w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 transition duration-150 text-sm">Contributors</button>
-            <button data-tab="publications" class="mobile-nav-item w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 transition duration-150 text-sm">Publications</button>
-            <button data-tab="contact" class="mobile-nav-item w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-100 transition duration-150 text-sm">Contact</button>
+            <button data-tab="people" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contributors</button>
+            <button data-tab="publications" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Publications</button>
+            <button data-tab="contact" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contact</button>
         </nav>
     </header>
 
@@ -168,328 +179,4 @@
                             <img src="https://openmedtech-lab.github.io/images/OpenXamp.jpg" alt="OpenXamp" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:mr-6 shadow-md">
                             <div class="lg:w-2/3">
                                 <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXamp: Open source biosignal amplifier</h3>
-                                <p class="text-gray-700 text-justify mb-3">OpenXamp is a cost-effective, open-source bio-signal amplifier designed to filter and amplify physiological signals for laboratory and DIY experiments. It features a high common-mode-rejection-ratio (CMRR) pre-amplifier for differential signal detection, with an option to short the inverting input for single-ended use. The device includes band-pass filtering and adjustable amplification to tailor the signal strength. Users can either utilize the amplified analog signal directly or convert it to digital via an integrated analog-to-digital converter (ADC) and microcontroller (MCU). The digitized data can then be transmitted to a computer via USB, leveraging the MCU's built-in interfaces for streamlined data handling and analysis. Commonly available electronic components are being used in the stimulator so that it can be developed in places where availability is an issue. Total components cost is only around $25!</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXamp" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                        <div id="OpenXstim" class="project-card flex flex-col lg:flex-row-reverse items-start border p-4 rounded-lg bg-gray-50">
-                            <img src="https://openmedtech-lab.github.io/images/OpenXstim.png" alt="OpenXstim" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:ml-6 shadow-md">
-                            <div class="lg:w-2/3 lg:pr-6">
-                                <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXstim: Open source electrical stimulator</h3>
-                                <p class="text-gray-700 text-justify mb-3">Transcutaneous spinal cord stimulation (tSES), a non-invasive, spinal cord neuromodulation method holds tremendous promise and hope for the people with paralysis resultant of spinal cord injury (SCI) and other neurological conditions. Yet, there are not many options of such stimulation devices compared to other successful electrical stimulators, especially for most people with neurological injuries in the developing world. Hence, we have developed an open source programmable transcutaneous electrical stimulator (TES) to facilitate researchers to develop successful stimulation therapy for people with neurological conditions. Commonly available electronic components are being used in the stimulator so that it can be developed in places where availability is an issue. Total components cost is around $200!</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXstim" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                        <div id="OpenXhand" class="project-card flex flex-col lg:flex-row items-start border p-4 rounded-lg bg-gray-50">
-                            <img src="https://openmedtech-lab.github.io/images/OpenXhand.jpeg" alt="OpenXhand" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:mr-6 shadow-md">
-                            <div class="lg:w-2/3">
-                                <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXhand: Open source hand exokeleton</h3>
-                                <p class="text-gray-700 text-justify mb-3">Millions of individuals suffer from upper extremity paralysis caused by neurological disorders including stroke, traumatic brain injury, or spinal cord injury. Robotic hand exoskeletons can substitute the missing motor control and help restore the functions in daily operations. However, most of the hand exoskeletons are bulky, stationary, and cumbersome to use. Using 3D printing technology, we have developed a motorized, lightweight, fully wearable rehabilitative hand exoskeleton capable of producing various grasps needed for the execution of daily tasks. The exoskeleton can produce fingertip force up to 8 N and can cover 91.5° of range of motion in just 3 s ans weights just 228 g. We tested the exoskeleton on two individuals with severe dextarity impairments. The results strongly support the functionality restoration and usability of the exokeleton in performing daily activities. Total components cost prototype one exoskeleton is around $100!</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXhand" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                        <div id="OpenXwheel" class="project-card flex flex-col lg:flex-row-reverse items-start border p-4 rounded-lg bg-gray-50">
-                            <img src="https://openmedtech-lab.github.io/images/OpenXwheel.png" alt="OpenXwheel" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:ml-6 shadow-md">
-                            <div class="lg:w-2/3 lg:pr-6">
-                                <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXwheel: Open source standing wheelchair</h3>
-                                <p class="text-gray-700 text-justify mb-3">Regular standing using assistive device after paralysing spinal cord injury (SCI) has numerous benefits including improved cardiovascular health, increased muscle mass and bone strength, and avoiding life threatening conditions such as pressure ulcer. It also significantly improves self-esteem and psychological health. Current standing wheelchairs, however, are too expensive for most SCI individuals. Hence, we have developed a low-cost open-source standing wheelchair to improve the life of people with paraplegia in low- and middle-income settings. Hence, we have developed an open source standing wheelchair to improve the life of people with paralysis in low- and middle-income (LMI) settings. Careful considerations were given to simplify the design to avoid complex manufacturing process. It costs only around $166 in a LMI country to develop this standing wheelchair!</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXwheel" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                        <div id="OpenXstand" class="project-card flex flex-col lg:flex-row items-start border p-4 rounded-lg bg-gray-50">
-                            <img src="https://openmedtech-lab.github.io/images/OpenXstand.jpg" alt="OpenXstand" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:mr-6 shadow-md">
-                            <div class="lg:w-2/3">
-                                <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXstand: Open source standing frame</h3>
-                                <p class="text-gray-700 text-justify mb-3">Did you know that people in developing countries have up to 20 times shorter life expectancy after sustaining neurological injuries, such as spinal cord injuries? This is largely due to preventable conditions like pressure ulcers. Regular standing provides a viable remedy for these secondary issues. The goal of this project was to create an actuator-controlled electric standing frame that is both affordable and effective in reducing pressure ulcer risks while improving the overall health of these individuals. Our active stander offers a safe, comfortable way to stand, enhancing bone density, muscular mass, and cardiovascular health through innovative design and open-source collaboration.</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXstand" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                        <div id="OpenXwalk" class="project-card flex flex-col lg:flex-row-reverse items-start border p-4 rounded-lg bg-gray-50">
-                            <img src="https://openmedtech-lab.github.io/images/OpenXwalk.jpg" alt="OpenXwalk" class="w-full lg:w-1/3 h-auto rounded-lg object-cover mb-4 lg:mb-0 lg:ml-6 shadow-md">
-                            <div class="lg:w-2/3 lg:pr-6">
-                                <h3 class="text-2xl font-semibold text-red-900 mb-2">OpenXwalk: Open source exoskeleton walker</h3>
-                                <p class="text-gray-700 text-justify mb-3">Children facing movement challenges due to conditions like cerebral palsy often encounter difficulties with walking and may experience feelings of exclusion. Exoskeleton walkers offer a potential solution by providing support for walking and aiding muscle movements. These devices are customizable for each child, potentially contributing to both physical improvement and cognitive development. Beyond the physical benefits, exoskeletons can enhance social interactions, fostering a sense of inclusion and happiness. Early intervention with these walkers may lead to improved long-term outcomes. However, the availability of such walkers is limited, and their cost is high. Hence, we've developed an open-source exoskeleton walker, aiming to make this technology accessible to children worldwide, promoting their well-being and ensuring they can enjoy life like everyone else!</p>
-                                <a href="https://github.com/OpenMedTech-Lab/OpenXwalk" target="_blank" class="text-sm text-red-600 font-medium hover:underline">View Project on GitHub &rarr;</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section id="tab-people" class="tab-content hidden">
-                 <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b pb-2 border-red-100">Meet the Contributors</h2>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        <div class="text-center p-4 bg-red-50 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                            <img src="https://raw.githubusercontent.com/mahdi-ul-bari/openmedtech-Lab.github.io/main/contributors/Monzurul%20Alam.png" alt="Convenor Dr. Monzurul Alam" class="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-red-900">
-                            <h3 class="text-xl font-bold text-gray-800">Dr. Monzurul Alam</h3>
-                            <p class="text-red-700 font-medium">Convenor, OpenMedTech Lab</p>
-                            <p class="text-sm text-gray-500 mt-1">Open Source Medical Devices</p>
-                        </div>
-
-                        <div class="text-center p-4 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                            <img src="https://placehold.co/120x120/6b7280/ffffff?text=PD" alt="Postdoctoral Researcher" class="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-gray-400">
-                            <h3 class="text-xl font-bold text-gray-800">Team Member</h3>
-                            <p class="text-gray-600 font-medium">Developer/Collaborator</p>
-                            <p class="text-sm text-gray-500 mt-1">Join us!</p>
-                        </div>
-                        
-                        <div class="text-center p-4 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition duration-300">
-                            <img src="https://placehold.co/120x120/6b7280/ffffff?text=COL" alt="Collaborator" class="w-24 h-24 rounded-full mx-auto mb-3 border-4 border-gray-400">
-                            <h3 class="text-xl font-bold text-gray-800">Collaborator</h3>
-                            <p class="text-gray-600 font-medium">Engineer/Researcher</p>
-                            <p class="text-sm text-gray-500 mt-1">Contribute to a project!</p>
-                        </div>
-
-                    </div>
-                    <p class="text-center text-gray-600 mt-8">The OpenMedTech Lab is a collaborative community. Want to be featured here? Join a project and get in touch!</p>
-                </div>
-            </section>
-
-            <section id="tab-publications" class="tab-content hidden">
-                <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b pb-2 border-red-100">Key Publications</h2>
-
-                    <ul class="space-y-4">
-                        <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
-                            <p class="font-semibold text-lg text-gray-800">Reed, E., & Lin, K. (2024). A Quantum-Resistant DAG-Based Consensus Protocol for Scalable IoT Networks. <span class="text-red-700 italic">Journal of Distributed Systems</span>, 42(3), 112-130.</p>
-                            <span class="text-sm text-gray-500">DOI: 10.1016/j.jds.2024.03.001</span>
-                        </li>
-                        <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
-                            <p class="font-semibold text-lg text-gray-800">Rodriguez, S., et al. (2023). Enhancing Data Privacy in Federated Edge Computing using Differential Privacy Masking. <span class="text-red-700 italic">IEEE Transactions on Mobile Computing</span>, 22(12), 6500-6515.</p>
-                            <span class="text-sm text-gray-500">DOI: 10.1109/TMC.2023.999999</span>
-                        </li>
-                        <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
-                            <p class="font-semibold text-lg text-gray-800">Lin, K., & Reed, E. (2022). Swarm Intelligence for Dynamic Resource Allocation in Serverless Architectures. <span class="text-red-700 italic">ACM Computing Surveys</span>, 55(1), Article 10.</p>
-                            <span class="text-sm text-gray-500">DOI: 10.1145/3555555</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="tab-contact" class="tab-content hidden">
-                <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-                    <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b pb-2 border-red-100">Get in Touch</h2>
-
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-2xl font-semibold text-red-900 mb-3">General Inquiry</h3>
-                            <p class="text-gray-700 mb-4">
-                                Want to get involved or have any questions? Please email us!
-                            </p>
-                            <p class="text-gray-700 text-xl">Email: <a href="mailto:openmedtechlab@gmail.com" class="text-red-600 hover:underline font-semibold">openmedtechlab@gmail.com</a></p>
-                        </div>
-                        <div>
-                             <h3 class="text-2xl font-semibold text-red-900 mb-3">Connect</h3>
-                            <p class="text-gray-700 mb-4">
-                                You can also visit our main repository:
-                            </p>
-                            <ul class="space-y-2 text-gray-700">
-                                <li><a href="https://github.com/OpenMedTech-Lab" class="text-red-600 hover:underline font-semibold">GitHub: OpenMedTech-Lab</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </main>
-
-    <footer class="bg-gray-800 text-white p-6 mt-10">
-        <div class="container mx-auto text-center text-sm">
-            &copy; 2025 Open Med Tech Lab. All Rights Reserved.
-        </div>
-    </footer>
-
-    <script>
-        // --- SLIDER CONFIGURATION ---
-        const imageLinks = [
-            // Using direct GitHub Pages URLs for reliable loading
-            { src: 'https://openmedtech-lab.github.io/images/OpenXamp.jpg', link: 'research' },
-            { src: 'https://openmedtech-lab.github.io/images/OpenXstim.png', link: 'research' },
-            { src: 'https://openmedtech-lab.github.io/images/OpenXhand.jpeg', link: 'research' },
-            { src: 'https://openmedtech-lab.github.io/images/OpenXwheel.png', link: 'research' },
-            { src: 'https://openmedtech-lab.github.io/images/OpenXstand.jpg', link: 'research' },
-            { src: 'https://openmedtech-lab.github.io/images/OpenXwalk.jpg', link: 'research' }
-        ];
-        const slideDuration = 4000; // 4 seconds
-
-        // --- TAB SWITCHING LOGIC (Modified to accept optional scroll ID) ---
-        function showTab(tabId, scrollId = null) {
-            // 1. Hide all content tabs
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.add('hidden');
-            });
-
-            // 2. Show the active content tab
-            const activeContent = document.getElementById(`tab-${tabId}`);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-
-                // 3. Scroll to the specific element if a project ID is provided
-                if (scrollId) {
-                    const projectElement = document.getElementById(scrollId);
-                    if (projectElement) {
-                        // Scroll to the project element, accounting for the fixed header
-                        const headerHeight = document.querySelector('header').offsetHeight;
-                        const elementPosition = projectElement.getBoundingClientRect().top + window.scrollY;
-                        window.scrollTo({
-                            top: elementPosition - headerHeight - 20, // 20px padding
-                            behavior: 'smooth'
-                        });
-                    }
-                } else {
-                    // Otherwise, scroll to the top of the main content area
-                     activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-
-            // 4. Update desktop button state
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            // Attach the active class logic to the main nav buttons
-            if (tabId !== 'research') { 
-                const activeButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-                if (activeButton) {
-                    activeButton.classList.add('active');
-                }
-            }
-
-            // 5. Update mobile button state
-            document.querySelectorAll('.mobile-nav-item').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            const activeMobileButton = document.querySelector(`.mobile-nav-item[data-tab="${tabId}"]`);
-            if (activeMobileButton) {
-                activeMobileButton.classList.add('active');
-            }
-        }
-
-        /**
-         * @function handleProjectClick
-         * Manages the click event for dropdown items: switches tab and scrolls to project.
-         */
-        function handleProjectClick(event) {
-            event.preventDefault(); 
-            const target = event.currentTarget;
-            const tabId = target.dataset.tab;
-            const projectId = target.dataset.project;
-
-            // Switch to the Research tab and scroll to the specific project
-            showTab(tabId, projectId); 
-
-            // Close the mobile menu if it's open
-            const mobileNavMenu = document.getElementById('mobile-nav-menu');
-            const menuIconOpen = document.getElementById('menu-icon-open');
-            const menuIconClose = document.getElementById('menu-icon-close');
-            
-            if (!mobileNavMenu.classList.contains('hidden')) {
-                mobileNavMenu.classList.add('hidden');
-                menuIconOpen.classList.remove('hidden');
-                menuIconClose.classList.add('hidden');
-            }
-        }
-
-
-        // --- SLIDER LOGIC ---
-        const sliderImage = document.getElementById('slider-image');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        let currentImageIndex = 0;
-        let autoSlideTimer;
-
-        function updateImage() {
-            sliderImage.src = imageLinks[currentImageIndex].src;
-        }
-
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % imageLinks.length;
-            updateImage();
-        }
-
-        function showPrevImage() {
-            currentImageIndex = (currentImageIndex - 1 + imageLinks.length) % imageLinks.length;
-            updateImage();
-        }
-
-        function resetTimer() {
-            clearInterval(autoSlideTimer);
-            autoSlideTimer = setInterval(showNextImage, slideDuration);
-        }
-
-        // --- DOCUMENT READY INITIALIZATION (BUG FIX APPLIED HERE) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const desktopNav = document.getElementById('desktop-nav');
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileNavMenu = document.getElementById('mobile-nav-menu');
-            const menuIconOpen = document.getElementById('menu-icon-open');
-            const menuIconClose = document.getElementById('menu-icon-close');
-            
-            // BUG FIX: This logic correctly determines the tabId for all main navigation buttons.
-            desktopNav.querySelectorAll('.tab-button').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const clickedButton = e.currentTarget;
-                    let tabId;
-                    
-                    if (clickedButton.id === 'tab-projects-btn') {
-                        // Clicking the main Projects button always takes us to the Research tab
-                        tabId = 'research';
-                    } else {
-                        // All other buttons (Home, Contributors, Pubs, Contact) use their data-tab attribute
-                        tabId = clickedButton.dataset.tab;
-                    }
-                    
-                    showTab(tabId);
-                });
-            });
-
-            // Mobile Nav Clicks (Simple tab switching)
-            mobileNavMenu.querySelectorAll('.mobile-nav-item').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    showTab(e.currentTarget.dataset.tab);
-                    // Close mobile menu after selection
-                    mobileNavMenu.classList.add('hidden');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                });
-            });
-
-            // Mobile Menu Toggle
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileNavMenu.classList.toggle('hidden');
-                menuIconOpen.classList.toggle('hidden');
-                menuIconClose.classList.toggle('hidden');
-            });
-            
-            // SLIDER INITIALIZATION
-            if (sliderImage) { 
-                updateImage();
-                autoSlideTimer = setInterval(showNextImage, slideDuration); // Start auto-slide
-
-                // Manual Slider Controls
-                nextBtn.addEventListener('click', () => {
-                    showNextImage();
-                    resetTimer(); 
-                });
-
-                prevBtn.addEventListener('click', () => {
-                    showPrevImage();
-                    resetTimer(); 
-                });
-            }
-
-
-            // Initialize to the 'home' tab on load
-            showTab('home');
-        });
-    </script>
-</body>
-</html>
+                                <p class="text-gray-700 text-justify mb-3">OpenXamp is a cost-effective, open-source bio-signal amplifier designed to filter and amplify physiological signals for laboratory and DIY experiments. It features a high common-mode-rejection-ratio (CMRR) pre-amplifier for differential signal detection, with an option to short the inverting input for single-ended use. The device includes band-pass filtering and adjustable amplification to tailor the signal strength. Users can either utilize the amplified analog signal directly or convert it to digital via an integrated analog-to-digital converter (ADC) and microcontroller (MCU). The digitized data can then be transmitted to a computer via USB, leveraging the MCU's built-in interfaces for streamlined data handling and analysis. Commonly available electronic components are being used in the stimulator so that it can be developed in places where availability is an issue. Total components cost is only
