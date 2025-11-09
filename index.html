@@ -12,8 +12,8 @@
             --primary-color: #7F1D1D; /* Tailwind red-900 (Dark Maroon) */
         }
         .header-compensation {
-    padding-top: 100px; /* Adjust this value (e.g., 80px, 90px, 100px) 
-                           until the content starts right below the sticky header. */
+            padding-top: 100px; /* Adjust this value (e.g., 80px, 90px, 100px) 
+                                 until the content starts right below the sticky header. */
         }
         body {
             font-family: 'Merriweather', serif;
@@ -115,17 +115,14 @@
                     </button>
 
                     <div id="projects-menu" class="absolute left-0 w-48 bg-red-900 rounded-md shadow-lg py-1 z-20 hidden group-hover:block transition duration-200">
-                        <a href="#OpenXamp" 
-                        data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXamp</a>
-                        <a href="#OpenXstim" 
-                        data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXstim</a>
-                        <a href="#OpenXhand" 
-                        data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXhand</a>
-                        <a href="#OpenXwheel" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXwheel</a>
-                        <a href="#OpenXstand" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXstand</a>
-                        <a href="#OpenXwalk" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white" onclick="handleProjectClick(event)">OpenXwalk</a>
+                        <a href="#" data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXamp</a>
+                        <a href="#" data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstim</a>
+                        <a href="#" data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXhand</a>
+                        <a href="#" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwheel</a>
+                        <a href="#" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstand</a>
+                        <a href="#" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwalk</a>
                         <div class="border-t border-red-800 my-1"></div>
-                        <a href="#research" data-tab="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-white hover:bg-red-700" onclick="handleProjectClick(event)">All Projects</a>
+                        <a href="#" data-tab="research" data-project="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">All Projects</a>
                     </div>
                 </div>
                 <button id="tab-people-btn" data-tab="people" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contributors</button>
@@ -291,11 +288,11 @@
                         <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
                             <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003419235-8/mobile-trans-spinal-electrical-stimulation-therapy-spinal-cord-injury-md-akhlasur-rahman-farjana-taoheed-peter-sturgess-alistair-mcewan-monzurul-alam">
                                 <p class="font-semibold text-lg text-gray-800">
-                                     Rahman, M. A., Taoheed, F., Sturgess, P., McEwan, A., & Alam, M. (2025). Mobile Trans-Spinal Electrical Stimulation Therapy for Spinal Cord Injury 
-                                         <span class="text-red-700 italic">Automation in Tele-Neurorehabilitation</span>, 1, 1-34. DOI: 10.1201/9781003419235-8 
+                                    Rahman, M. A., Taoheed, F., Sturgess, P., McEwan, A., & Alam, M. (2025). Mobile Trans-Spinal Electrical Stimulation Therapy for Spinal Cord Injury 
+                                        <span class="text-red-700 italic">Automation in Tele-Neurorehabilitation</span>, 1, 1-34. DOI: 10.1201/9781003419235-8 
                                 </p>
                              </a>
-                     </li>
+                        </li>
                         <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
                             <p class="font-semibold text-lg text-gray-800">Rodriguez, S., et al. (2023). Enhancing Data Privacy in Federated Edge Computing using Differential Privacy Masking. <span class="text-red-700 italic">IEEE Transactions on Mobile Computing</span>, 22(12), 6500-6515.</p>
                             <span class="text-sm text-gray-500">DOI: 10.1109/TMC.2023.999999</span>
@@ -344,257 +341,195 @@
 
     <script>
         /* =======================================
- * SLIDER FUNCTIONALITY CODE
- * ======================================= */
-const sliderImages = [
-    "https://openmedtech-lab.github.io/images/OpenXamp.jpg",
-    "https://openmedtech-lab.github.io/images/OpenXstim.png",
-    "https://openmedtech-lab.github.io/images/OpenXhand.jpeg",
-    "https://openmedtech-lab.github.io/images/OpenXwheel.png",
-    "https://openmedtech-lab.github.io/images/OpenXstand.jpg",
-    "https://openmedtech-lab.github.io/images/OpenXwalk.jpg"
-];
+        * SLIDER FUNCTIONALITY CODE
+        * ======================================= */
+        const sliderImages = [
+            "https://openmedtech-lab.github.io/images/OpenXamp.jpg",
+            "https://openmedtech-lab.github.io/images/OpenXstim.png",
+            "https://openmedtech-lab.github.io/images/OpenXhand.jpeg",
+            "https://openmedtech-lab.github.io/images/OpenXwheel.png",
+            "https://openmedtech-lab.github.io/images/OpenXstand.jpg",
+            "https://openmedtech-lab.github.io/images/OpenXwalk.jpg"
+        ];
 
-let currentSlideIndex = 0;
+        let currentSlideIndex = 0;
+        let currentProjectHash = null; // Global state for project hash
 
-function updateSlider() {
-    const sliderImageElement = document.getElementById('slider-image');
-    if (sliderImageElement) {
-        // Update the image source based on the current index
-        sliderImageElement.src = sliderImages[currentSlideIndex];
-    }
-}
-
-function nextSlide() {
-    // Increment index, wrap around to 0 if it exceeds the array length
-    currentSlideIndex = (currentSlideIndex + 1) % sliderImages.length;
-    updateSlider();
-}
-
-function prevSlide() {
-    // Decrement index, wrap around to the end if it goes below 0
-    currentSlideIndex = (currentSlideIndex - 1 + sliderImages.length) % sliderImages.length;
-    updateSlider();
-}
-
-// Ensure the buttons are attached to the functions once the DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    // ... existing initialization code ...
-    function suppressHashScroll() {
-        // If the URL contains a hash (e.g., #OpenXamp)
-        if (window.location.hash) {
-            // Check if the hash corresponds to a tab or a project ID
-            const hash = window.location.hash.substring(1);
-
-            // Prevent the default browser jump to the hash link
-            window.onload = function () {
-                setTimeout(function () {
-                    window.scrollTo(0, 0); // Force scroll to top
-                }, 1); // A small delay ensures this runs after the browser's attempt
+        function updateSlider() {
+            const sliderImageElement = document.getElementById('slider-image');
+            if (sliderImageElement) {
+                sliderImageElement.src = sliderImages[currentSlideIndex];
             }
-            }
-    }
-    
-    // Run the suppressor function immediately
-    suppressHashScroll();
-    // ===============================================
-    
-    const desktopNav = document.getElementById('desktop-nav');
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileNavMenu = document.getElementById('mobile-nav-menu');
-    const menuIconOpen = document.getElementById('menu-icon-open');
-    const menuIconClose = document.getElementById('menu-icon-close');
-    
-    // --- Attach Event Listeners for Main Tabs ---
-    // ... (rest of your event listeners, they remain the same) ...
-    
-    // --- Initialization ---
-    // 1. Setup project links to use handleProjectClick
-    document.querySelectorAll('.dropdown-item').forEach(link => {
-        link.addEventListener('click', handleProjectClick);
-    });
-
-    // 2. Initialize to the 'home' tab on load 
-    // This call is still necessary to set the initial tab state (visible/hidden, active buttons)
-    showTab('home', true); 
-});
-    // --- SLIDER EVENT LISTENERS ---
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    
-    if (prevBtn) {
-        prevBtn.addEventListener('click', prevSlide);
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', nextSlide);
-    }
-    
-    // Ensure the slider starts on the first image
-    updateSlider(); 
-    
-    // ... rest of your DOMContentLoaded code ...
-});
-    // Global state to track which project (if any) is currently selected
-    let currentProjectHash = null; 
-
-    function updateActiveNav(tabId, projectHash = null) {
-        // 3. Update desktop button state
-        document.querySelectorAll('.tab-button').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        
-        // Activate the main tab button (e.g., 'research' button)
-        const mainButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-        if (mainButton) {
-            mainButton.classList.add('active');
         }
 
-        // Special handling for the Projects dropdown button:
-        // If a specific project is selected, the main "Projects" button should look active
-        const projectsBtn = document.getElementById('tab-projects-btn');
-        if (tabId === 'research' && projectHash) {
-            if (projectsBtn) {
-                 projectsBtn.classList.add('active');
-            }
-        } else if (projectsBtn && !projectHash) {
-            // If 'All Projects' or 'Home' is active, deactivate the specific button look if it was active
-            projectsBtn.classList.remove('active');
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % sliderImages.length;
+            updateSlider();
         }
 
-        // 4. Update mobile button state (simplified for this context)
-        document.querySelectorAll('.mobile-nav-item').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        const activeMobileButton = document.querySelector(`.mobile-nav-item[data-tab="${tabId}"]`);
-        if (activeMobileButton) {
-            activeMobileButton.classList.add('active');
-        }
-    }
-
-
-    // New function to handle clicks from the Project Dropdown
-    function handleProjectClick(event) {
-        event.preventDefault(); // *** PREVENTS THE BROWSER FROM JUMPING TO THE HASH (#OpenXamp) ***
-        
-        const tabId = event.currentTarget.dataset.tab; // Should be 'research'
-        const projectHash = event.currentTarget.getAttribute('href').substring(1); // Extracts 'OpenXamp'
-        
-        // Set the global state
-        currentProjectHash = projectHash;
-
-        // Close mobile menu after selection
-        const mobileNavMenu = document.getElementById('mobile-nav-menu');
-        const menuIconOpen = document.getElementById('menu-icon-open');
-        const menuIconClose = document.getElementById('menu-icon-close');
-        if (mobileNavMenu) {
-            mobileNavMenu.classList.add('hidden');
-            menuIconOpen.classList.remove('hidden');
-            menuIconClose.classList.add('hidden');
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + sliderImages.length) % sliderImages.length;
+            updateSlider();
         }
 
-        // Show the correct tab, passing the specific project hash
-        showTab(tabId, false, projectHash); 
-    }
+        /* =======================================
+        * TAB AND NAVIGATION MANAGEMENT
+        * ======================================= */
 
-    // Modified showTab function
-    function showTab(tabId, isInitialLoad = false, projectHash = null) {
-        // 1. Hide all content tabs
-        document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.add('hidden');
-        });
-
-        // 2. Show the active content tab
-        const activeContent = document.getElementById(`tab-${tabId}`);
-        if (activeContent) {
-            activeContent.classList.remove('hidden');
+        function updateActiveNav(tabId, projectHash = null) {
+            // 3. Update desktop button state
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
             
-            if (isInitialLoad) {
-                window.scrollTo(0, 0); // Ensure start at top on page load
-            } else {
-                // SCROLL LOGIC:
-                if (tabId === 'research' && projectHash) {
-                    // If a specific project hash exists, scroll to that element ID
-                    const targetElement = document.getElementById(projectHash);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    } else {
-                        // If the specific project element isn't found, scroll to the top of the research section
-                        activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                } else {
-                    // For all other tabs (Home, People, etc.), scroll to the top of the content area
-                    activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+            // Activate the main tab button (e.g., 'research' button)
+            const mainButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+            if (mainButton) {
+                mainButton.classList.add('active');
+            }
+
+            // Special handling for the Projects dropdown button:
+            const projectsBtn = document.getElementById('tab-projects-btn');
+            if (tabId === 'research' && projectsBtn) {
+                 projectsBtn.classList.add('active');
+            } else if (projectsBtn && tabId !== 'research') {
+                 projectsBtn.classList.remove('active');
+            }
+
+            // 4. Update mobile button state
+            document.querySelectorAll('.mobile-nav-item').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            const activeMobileButton = document.querySelector(`.mobile-nav-item[data-tab="${tabId}"]`);
+            if (activeMobileButton) {
+                activeMobileButton.classList.add('active');
             }
         }
 
-        // 3 & 4. Update Navigation States (using the helper function)
-        updateActiveNav(tabId, projectHash);
-    }
+        // New function to handle clicks from the Project Dropdown
+        function handleProjectClick(event) {
+            event.preventDefault(); // *** CRITICAL FIX: STOPS BROWSER JUMP ***
+            
+            const tabId = event.currentTarget.dataset.tab; // Should be 'research'
+            // Use dataset.project instead of href.substring(1) for a cleaner way
+            const projectHash = event.currentTarget.dataset.project; 
+            
+            // Set the global state (used for active button state)
+            currentProjectHash = projectHash;
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const desktopNav = document.getElementById('desktop-nav');
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileNavMenu = document.getElementById('mobile-nav-menu');
-        const menuIconOpen = document.getElementById('menu-icon-open');
-        const menuIconClose = document.getElementById('menu-icon-close');
-
-        // --- Attach Event Listeners for Main Tabs (Home, People, Publications, Contact) ---
-        desktopNav.querySelectorAll('.tab-button[data-tab]').forEach(button => {
-            if (button.id !== 'tab-projects-btn') { // Skip the complex projects button
-                button.addEventListener('click', (e) => {
-                    // Clear any specific project state when clicking a main tab
-                    currentProjectHash = null; 
-                    showTab(e.currentTarget.dataset.tab, false); 
-                });
-            }
-        });
-
-        // Mobile Nav Clicks (Only handling main tabs here, as dropdowns are complex)
-        mobileNavMenu.querySelectorAll('.mobile-nav-item').forEach(button => {
-            if (button.dataset.tab !== 'research') { // Mobile only shows "Projects (See All)" which maps to general research view
-                 button.addEventListener('click', (e) => {
-                    currentProjectHash = null; 
-                    showTab(e.currentTarget.dataset.tab, false);
-                    // Close menu logic... (kept from original)
-                    mobileNavMenu.classList.add('hidden');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                });
-            } else {
-                 // Mobile "Projects (See All)" button handler
-                 button.addEventListener('click', (e) => {
-                    currentProjectHash = null; 
-                    showTab('research', false); // Shows the full research page (no specific hash)
-                    // Close menu logic...
-                    mobileNavMenu.classList.add('hidden');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                });
-            }
-        });
-
-        // Mobile Menu Toggle (Remains the same)
-        mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileNavMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileNavMenu.classList.remove('hidden');
-                menuIconOpen.classList.add('hidden');
-                menuIconClose.classList.remove('hidden');
-            } else {
+            // Close mobile menu after selection
+            const mobileNavMenu = document.getElementById('mobile-nav-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            if (mobileNavMenu && !mobileNavMenu.classList.contains('hidden')) {
                 mobileNavMenu.classList.add('hidden');
                 menuIconOpen.classList.remove('hidden');
                 menuIconClose.classList.add('hidden');
             }
-        });
-        
-        // --- Initialization ---
-        // 1. Setup project links to use handleProjectClick
-        document.querySelectorAll('.dropdown-item').forEach(link => {
-            link.addEventListener('click', handleProjectClick);
-        });
 
-        // 2. Initialize to the 'home' tab on load (no scroll jump)
-        showTab('home', true);
-    });
-</script>
+            // Show the correct tab, passing the specific project hash
+            showTab(tabId, false, projectHash); 
+        }
+
+        // Modified showTab function
+        function showTab(tabId, isInitialLoad = false, projectHash = null) {
+            // 1. Hide all content tabs
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // 2. Show the active content tab
+            const activeContent = document.getElementById(`tab-${tabId}`);
+            if (activeContent) {
+                activeContent.classList.remove('hidden');
+                
+                if (isInitialLoad) {
+                    window.scrollTo(0, 0); // Ensure start at top on page load
+                } else {
+                    // SCROLL LOGIC:
+                    let targetElement;
+                    if (tabId === 'research' && projectHash && projectHash !== 'research') {
+                        // If a specific project hash exists, scroll to that element ID
+                        targetElement = document.getElementById(projectHash);
+                    } else {
+                        // For all other tabs, scroll to the top of the content area
+                        targetElement = activeContent;
+                    }
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }
+
+            // 3 & 4. Update Navigation States
+            updateActiveNav(tabId, projectHash);
+        }
+
+        /* =======================================
+        * INITIALIZATION BLOCK
+        * ======================================= */
+        document.addEventListener('DOMContentLoaded', () => {
+            const desktopNav = document.getElementById('desktop-nav');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileNavMenu = document.getElementById('mobile-nav-menu');
+            const menuIconOpen = document.getElementById('menu-icon-open');
+            const menuIconClose = document.getElementById('menu-icon-close');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // --- Tab Event Listeners (Desktop) ---
+            desktopNav.querySelectorAll('.tab-button[data-tab]').forEach(button => {
+                if (button.id !== 'tab-projects-btn') { // Skip the complex projects button
+                    button.addEventListener('click', (e) => {
+                        currentProjectHash = null; 
+                        showTab(e.currentTarget.dataset.tab, false); 
+                    });
+                }
+            });
+
+            // --- Tab Event Listeners (Mobile) ---
+            mobileNavMenu.querySelectorAll('.mobile-nav-item').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Mobile tabs go to the main tab, so clear project hash
+                    currentProjectHash = null; 
+                    showTab(e.currentTarget.dataset.tab, false);
+                    
+                    // Close mobile menu after click
+                    mobileNavMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                });
+            });
+
+            // --- Project Dropdown Links Event Listener (CRITICAL FIX) ---
+            document.querySelectorAll('#projects-menu .dropdown-item').forEach(link => {
+                // Attach the function to handle project clicks and scrolling
+                link.addEventListener('click', handleProjectClick);
+            });
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuBtn.addEventListener('click', () => {
+                const isHidden = mobileNavMenu.classList.contains('hidden');
+                if (isHidden) {
+                    mobileNavMenu.classList.remove('hidden');
+                    menuIconOpen.classList.add('hidden');
+                    menuIconClose.classList.remove('hidden');
+                } else {
+                    mobileNavMenu.classList.add('hidden');
+                    menuIconOpen.classList.remove('hidden');
+                    menuIconClose.classList.add('hidden');
+                }
+            });
+            
+            // --- Slider Event Listeners ---
+            if (prevBtn) { prevBtn.addEventListener('click', prevSlide); }
+            if (nextBtn) { nextBtn.addEventListener('click', nextSlide); }
+            
+            // --- Initialization ---
+            updateSlider(); 
+            showTab('home', true); // Initialize to the 'home' tab on load
+        });
+    </script>
+</body>
+</html>
