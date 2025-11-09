@@ -339,6 +339,60 @@
     </footer>
 
     <script>
+        /* =======================================
+ * SLIDER FUNCTIONALITY CODE
+ * ======================================= */
+const sliderImages = [
+    "https://openmedtech-lab.github.io/images/OpenXamp.jpg",
+    "https://openmedtech-lab.github.io/images/OpenXstim.png",
+    "https://openmedtech-lab.github.io/images/OpenXhand.jpeg",
+    "https://openmedtech-lab.github.io/images/OpenXwheel.png",
+    "https://openmedtech-lab.github.io/images/OpenXstand.jpg",
+    "https://openmedtech-lab.github.io/images/OpenXwalk.jpg"
+];
+
+let currentSlideIndex = 0;
+
+function updateSlider() {
+    const sliderImageElement = document.getElementById('slider-image');
+    if (sliderImageElement) {
+        // Update the image source based on the current index
+        sliderImageElement.src = sliderImages[currentSlideIndex];
+    }
+}
+
+function nextSlide() {
+    // Increment index, wrap around to 0 if it exceeds the array length
+    currentSlideIndex = (currentSlideIndex + 1) % sliderImages.length;
+    updateSlider();
+}
+
+function prevSlide() {
+    // Decrement index, wrap around to the end if it goes below 0
+    currentSlideIndex = (currentSlideIndex - 1 + sliderImages.length) % sliderImages.length;
+    updateSlider();
+}
+
+// Ensure the buttons are attached to the functions once the DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing initialization code ...
+    
+    // --- SLIDER EVENT LISTENERS ---
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    // Ensure the slider starts on the first image
+    updateSlider(); 
+    
+    // ... rest of your DOMContentLoaded code ...
+});
     // Global state to track which project (if any) is currently selected
     let currentProjectHash = null; 
 
