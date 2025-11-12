@@ -13,53 +13,8 @@
 <body class="min-h-screen flex flex-col">
 
     <header class="bg-red-900 shadow-md sticky top-0 z-10 nav-texture">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-3xl font-extrabold text-white">
-                <span class="text-white">Open Med</span> Tech
-            </h1>
-
-            <nav id="desktop-nav" class="hidden md:flex space-x-2 lg:space-x-4">
-                <button id="tab-home-btn" data-tab="home" class="tab-button active px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Home</button>
-
-                <div id="projects-dropdown" class="relative group">
-                    <button id="tab-projects-btn" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white flex items-center">
-                        Projects
-                        <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="white" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-
-                   <div id="projects-menu" class="absolute left-0 w-48 bg-red-900 rounded-md shadow-lg py-1 **hidden group-hover:block** z-20">
-                        <a href="#" data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXamp</a>
-                        <a href="#" data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstim</a>
-                        <a href="#" data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXhand</a>
-                        <a href="#" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwheel</a>
-                        <a href="#" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstand</a>
-                        <a href="#" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwalk</a>
-                        <div class="border-t border-red-800 my-1"></div>
-                        <a href="#" data-tab="research" data-project="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">All Projects</a>
-                    </div>
-                </div>
-                <button id="tab-people-btn" data-tab="people" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contributors</button>
-                <button id="tab-publications-btn" data-tab="publications" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Publications</button>
-                <button id="tab-contact-btn" data-tab="contact" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contact</button>
-            </nav>
-
-            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-white hover:bg-red-700 transition duration-150">
-                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
-
-        <nav id="mobile-nav-menu" class="md:hidden hidden bg-red-900 border-t border-red-800 shadow-lg">
-            <button data-tab="home" class="mobile-nav-item active w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Home</button>
-            
-            <button data-tab="research" class="mobile-nav-item w-full text-left px-4 py-3 font-bold text-white bg-red-700 border-l-4 border-orange-500 transition duration-150 text-sm">Projects (See All)</button>
-
-            <button data-tab="people" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contributors</button>
-            <button data-tab="publications" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Publications</button>
-            <button data-tab="contact" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contact</button>
-        </nav>
+        <div id="navbar-container"></div>
     </header>
-
     <main class="container mx-auto px-4 flex-grow header-compensation">
     <div id="content-container">
 
@@ -393,6 +348,28 @@ function handleProjectClick(event) {
             updateActiveNav(tabId, projectHash);
         }
 
+function loadNavbar() {
+    return fetch('navbar.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            const container = document.getElementById('navbar-container');
+            if (container) {
+                // Insert the HTML content into the container
+                container.innerHTML = data;
+                // Since the original header was a <header> and now it's in a <div>, 
+                // we'll update the container to be the sticky header element itself
+                // to maintain all the original styles/behavior.
+                // The inner HTML contains the actual <header> element, so this is fine.
+                // Alternatively, you could change the placeholder above to <header id="navbar-container"></header>
+            }
+        })
+        .catch(e => console.error("Could not load navbar:", e));
+}
         /* =======================================
         * INITIALIZATION BLOCK
         * ======================================= */
