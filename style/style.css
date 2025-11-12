@@ -81,34 +81,29 @@
             background-blend-mode: multiply; 
         }
         /* --- DROPDOWN HOVER FIX (CSS) --- */
-        /* 1. Initial state for the dropdown menu (hidden but set up for transition) */
-       /* --- DROPDOWN HOVER FIX (CSS) --- */
-        
-        /* 1. Initial state for the dropdown menu (hidden and collapsed) */
-        #projects-menu {
-            opacity: 0;
-            visibility: hidden;
-            /* --- COLLAPSE PROPERTIES (Kept) --- */
-            max-height: 0; /* Starts collapsed (0 height) */
-            overflow: hidden; /* Hides content that exceeds 0 height */
-            /* --------------------------------- */
+        /* 1. Initial state for the dropdown menu (hidden and collapsed) */
+#projects-menu {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0; /* Starts collapsed (0 height) */
+    overflow: hidden; /* Hides content that exceeds 0 height */
+    
+    /* Apply transitions to max-height, opacity, and visibility */
+    /* Note: I removed the 0.5s delay you had on transition to make it feel snappier. */
+    transition: 
+        max-height 0.3s ease, 
+        opacity 0.3s ease, 
+        visibility 0.3s ease;
+}
 
-            /* Apply transitions to max-height, opacity, and visibility */
-            transition: 
-                max-height 0.3s ease 0.5s, 
-                opacity 0.3s ease 0.5s, 
-                visibility 0.3s ease 0.5s;
-        }
-        
-        /* 2. Visible state when the parent group is hovered */
-        .group:hover #projects-menu {
-            opacity: 1;
-            visibility: visible;
-            
-            /* --- 🚨 THE MISSING FIX: Add a large max-height! 🚨 --- */
-            max-height: 400px; /* Set a height large enough for all content to show */
-            /* -------------------------------------------------------- */
-
-            /* Remove the delay when showing the menu so it appears instantly */
-            transition-delay: 0s;
-        }
+/* 2. Visible state when the parent group is hovered */
+.group:hover #projects-menu {
+    opacity: 1;
+    visibility: visible;
+    
+    /* 🚨 The fix for the collapse effect: Set a large max-height! 🚨 */
+    max-height: 400px; /* Set a height large enough for all content to show */
+    
+    /* Remove the delay when showing the menu so it appears instantly */
+    transition-delay: 0s;
+}
