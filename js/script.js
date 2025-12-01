@@ -246,3 +246,61 @@
             console.error("Initialization failed due to navbar loading error:", e);
         });
     });
+// --- Add this function to your js/script.js file ---
+
+function loadResearchContent() {
+    const contentLoader = document.getElementById('research-content-loader');
+    
+    // Check if content is already loaded to prevent redundant network requests
+    if (contentLoader && contentLoader.dataset.loaded === 'true') {
+        return;
+    }
+
+    // Use Fetch API to load the external HTML file
+    fetch('research.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.text();
+        })
+        .then(html => {
+            // Insert the HTML content into the loader div
+            if (contentLoader) {
+                contentLoader.innerHTML = html;
+                contentLoader.dataset.loaded = 'true'; // Mark as loaded
+            }
+        })
+        .catch(error => {
+            console.error('Error loading research.html:', error);
+            if (contentLoader) {
+                contentLoader.innerHTML = '<p class="text-red-600 p-8 text-center">Sorry, the research content failed to load.</p>';
+            }
+        });
+}
+
+// You must integrate the loadResearchContent() call into your existing showTab function.
+// Here is the recommended update for your showTab function (assuming it exists):
+
+function showTab(tabId) {
+    // Hide all tab content sections
+    document.querySelectorAll('.tab-content').forEach(section => {
+        section.classList.add('hidden');
+    });
+
+    // Show the active tab section
+    const activeTabSection = document.getElementById('tab-' + tabId);
+    if (activeTabSection) {
+        activeTabSection.classList.remove('hidden');
+    }
+    
+    // Update active button state (logic omitted for brevity)
+    
+    // Check if the research tab is being shown, and load content if it is
+    if (tabId === 'research') {
+        loadResearchContent();
+    }
+}
+
+// You must ensure all buttons that use 'data-tab="research"' call the showTab('research') function 
+// when clicked. (If you use event listeners, update them to use showTab).
