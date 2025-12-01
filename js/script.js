@@ -48,6 +48,7 @@ function loadResearchContent() {
     fetch('research.html')
         .then(response => {
             if (!response.ok) {
+                // Check for HTTP errors (404, 500, etc.)
                 throw new Error('Network response was not ok: ' + response.statusText);
             }
             return response.text();
@@ -62,7 +63,7 @@ function loadResearchContent() {
         .catch(error => {
             console.error('Error loading research.html:', error);
             if (contentLoader) {
-                contentLoader.innerHTML = '<p class="text-red-600 p-8 text-center">Sorry, the research content failed to load.</p>';
+                contentLoader.innerHTML = '<p class="text-red-600 p-8 text-center">Sorry, the research content failed to load. Check your console for details.</p>';
             }
         });
 }
@@ -88,18 +89,18 @@ function updateActiveNav(tabId, projectHash = null) {
     const projectsBtn = document.getElementById('tab-projects-btn');
     if (projectsBtn) {
         // If the active tab is 'research' AND we navigated via a specific project link, 
-        // keep the Projects button active.
+        // OR we clicked the 'All Projects' link inside the dropdown, activate the Projects button.
         if (tabId === 'research' && projectHash && projectHash !== 'research') {
             projectsBtn.classList.add('active');
-            // If we are on a project page, the main 'Research' button (if separate) should not be active
+            // If the Projects button is active, its corresponding standard tab (if it exists) should be deactivated.
             if (mainButton && mainButton.id !== 'tab-projects-btn') {
                 mainButton.classList.remove('active');
             }
-        } else if (tabId === 'research' && projectsBtn.dataset.tab === 'research') {
-             // If we clicked the 'Projects' dropdown or the 'All Projects' link within the dropdown,
-             // activate the Projects button.
-             projectsBtn.classList.add('active');
-        } else if (tabId !== 'research') {
+        } else if (tabId === 'research' && projectHash === 'research') {
+            // If we clicked 'All Projects'
+            projectsBtn.classList.add('active');
+        } else if (tabId !== 'research' && projectsBtn.dataset.tab === 'research') {
+            // Ensure Projects button is deactivated if we move away from research tab
             projectsBtn.classList.remove('active');
         }
     }
@@ -163,8 +164,9 @@ function showTab(tabId, isInitialLoad = false, projectHash = null) {
     if (activeContent) {
         activeContent.classList.remove('hidden');
 
-        // Check if the research tab is being shown, and load content if it is
+        // 🌟 CRITICAL FIX: Load Research Content if tab is 'research' 🌟
         if (tabId === 'research') {
+            // Load the external content into the empty container
             loadResearchContent();
         }
 
@@ -174,15 +176,16 @@ function showTab(tabId, isInitialLoad = false, projectHash = null) {
         } else {
             // SCROLL LOGIC
             let targetElement;
+            
             if (tabId === 'research' && projectHash && projectHash !== 'research') {
                 // If a specific project hash exists, scroll instantly to that element ID
-                // Note: We delay scrolling slightly to give the AJAX content time to load
+                // We add a small delay to ensure the content from research.html has time to load and render
                 setTimeout(() => {
                     targetElement = document.getElementById(projectHash);
                     if (targetElement) {
                          targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
                     }
-                }, 50); // Small delay to allow content insertion
+                }, 50); // 50ms delay for content loading
             } else {
                 // For all other tabs, scroll instantly to the top of the content area
                 targetElement = activeContent;
@@ -207,12 +210,11 @@ function loadNavbar() {
             return response.text();
         })
         .then(data => {
-            const outerHeader = document.querySelector('header');
             const containerDiv = document.getElementById('navbar-container');
 
-            if (outerHeader && containerDiv) {
-                // Since data contains the full header content, replace the empty container
-                containerDiv.outerHTML = data;
+            if (containerDiv) {
+                // Insert the loaded HTML into the container
+                containerDiv.innerHTML = data;
             }
         })
         .catch(e => console.error("Could not load navbar:", e));
@@ -224,6 +226,7 @@ function loadNavbar() {
  * ======================================= */
 document.addEventListener('DOMContentLoaded', () => {
     // --- STEP 1: LOAD NAVBAR CONTENT (runs asynchronously) ---
+    // Note: The new Research button must be loaded here before we attach listeners.
     loadNavbar().then(() => {
         // --- STEP 2: ALL INITIALIZATION MUST HAPPEN HERE (after content is loaded) ---
 
@@ -234,11 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const menuIconClose = document.getElementById('menu-icon-close');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
-
-        // We must check if these exist before trying to call methods on them
+        
+        // This check is now more robust since content is loaded dynamically
         if (desktopNav && mobileMenuBtn && mobileNavMenu) {
             // --- Tab Event Listeners (Desktop) ---
             desktopNav.querySelectorAll('.tab-button[data-tab]').forEach(button => {
+                // We exclude the Projects dropdown button itself from this click handler
                 if (button.id !== 'tab-projects-btn') {
                     button.addEventListener('click', (e) => {
                         currentProjectHash = null;
@@ -261,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // --- Project Dropdown Links Event Listener ---
-            // Note: This relies on #projects-menu being loaded via navbar.html
             const projectsMenu = document.getElementById('projects-menu');
             if (projectsMenu) {
                 projectsMenu.querySelectorAll('.dropdown-item').forEach(link => {
