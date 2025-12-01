@@ -37,8 +37,9 @@ function prevSlide() {
 
 // Function to dynamically load research.html content
 function loadResearchContent() {
-    // NOTE: Changed path from 'research.html' to '../research.html' based on your initial request
-    // If the file is in the same directory, use 'research.html'
+    // NOTE: This function is currently unused in the corrected logic, 
+    // as all research content is embedded in index.html (tab-research).
+    // Keeping it for future use if external loading is needed.
     const contentLoader = document.getElementById('research-content-loader');
 
     // Check if content is already loaded to prevent redundant network requests
@@ -80,21 +81,26 @@ function updateActiveNav(tabId, projectHash = null) {
     // 3. Update desktop button state: Remove 'active' from ALL tab buttons first
     document.querySelectorAll('.tab-button').forEach(btn => {
         btn.classList.remove('active');
+        // Removing hover/active styles for non-active buttons
+        btn.classList.remove('bg-red-700', 'text-white');
+        btn.classList.add('text-white'); // Ensure default state is applied
     });
 
-    // NOTE: Removed 'researchBtn' since it doesn't exist as a standalone element in HTML
+    // Get the Projects dropdown button (used for activation when a project is clicked)
     const projectsBtn = document.getElementById('tab-projects-btn');
 
-    if (tabId === 'research') {
-        // SCENARIO: We are on the research tab, either via 'Projects' or a specific project link
+    if (tabId === 'projects') {
+        // SCENARIO: We are on the projects tab, either via 'Projects' button or a specific project link
         if (projectsBtn) {
             projectsBtn.classList.add('active'); // Activate the Projects dropdown button
+            projectsBtn.classList.add('bg-red-700', 'text-white');
         }
     } else {
-        // For any other tab (home, people, contact), activate the main button for that tab
+        // For any other tab (home, research, people, contact), activate the main button for that tab
         const mainButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
         if (mainButton) {
             mainButton.classList.add('active');
+            mainButton.classList.add('bg-red-700', 'text-white');
         }
     }
 
@@ -112,7 +118,8 @@ function updateActiveNav(tabId, projectHash = null) {
 function handleProjectClick(event) {
     event.preventDefault();
 
-    const tabId = event.currentTarget.dataset.tab; // Should be 'research'
+    // The tabId should always be 'projects' for these links
+    const tabId = event.currentTarget.dataset.tab; // This should be 'projects'
     const projectHash = event.currentTarget.dataset.project;
 
     currentProjectHash = projectHash;
@@ -159,7 +166,7 @@ function showTab(tabId, isInitialLoad = false, projectHash = null) {
     if (activeContent) {
         activeContent.classList.remove('hidden');
 
-        // Load Research Content if tab is 'research'
+        // Load Research Content if tab is 'research' (keeping this logic for future use)
         if (tabId === 'research') {
             loadResearchContent();
         }
@@ -173,19 +180,23 @@ function showTab(tabId, isInitialLoad = false, projectHash = null) {
             
             // This block handles scrolling ONLY if a specific project hash is passed 
             // (i.e., when clicking a link in the 'Projects' dropdown menu).
-            if (tabId === 'research' && projectHash && projectHash !== 'research') {
+            // The project hash value for 'All Projects' is also 'projects', so we exclude it from scrolling.
+            if (tabId === 'projects' && projectHash && projectHash !== 'projects') {
                 // If a specific project hash exists, scroll instantly to that element ID
-                // Delay to ensure the content from research.html has time to load and render
+                // Delay to ensure the content has time to render after showing the tab
                 setTimeout(() => {
                     targetElement = document.getElementById(projectHash);
                     if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
-                }, 50); // 50ms delay for content loading
-            } 
+                }, 50); // 50ms delay for content rendering
+            } else if (tabId === 'projects' && projectHash === 'projects') {
+                // Clicking 'All Projects' should just scroll to the top of the Projects tab
+                 setTimeout(() => {
+                    activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50);
+            }
             // *** ALL OTHER GENERAL TAB CLICKS DO NOT TRIGGER SCROLLING HERE ***
-            // The scroll logic for non-initial-load, general tab clicks has been removed 
-            // to prevent the unwanted auto-scrolling effect.
         }
     }
 
