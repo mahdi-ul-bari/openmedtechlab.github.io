@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <title>The OpenMedTech Lab</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <title>The OpenMedTech Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="min-h-screen flex flex-col">
 
     <header class="bg-red-900 shadow-md sticky top-0 z-10 nav-texture">
-        <div id="navbar-container"></div>
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-white">
+                <span class="text-white">Open Med</span> Tech
+            </h1>
+
+            <nav id="desktop-nav" class="hidden md:flex space-x-2 lg:space-x-4">
+                <button id="tab-home-btn" data-tab="home" class="tab-button active px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Home</button>
+                
+                <div id="projects-dropdown" class="relative group">
+                    <button id="tab-projects-btn" data-tab="research" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white flex items-center">
+                        Projects
+                        <svg class="ml-1 w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="white" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+
+                   <div id="projects-menu" class="absolute left-0 w-48 bg-red-900 rounded-md shadow-lg py-1 hidden group-hover:block z-20">
+                        <a href="#" data-tab="research" data-project="OpenXamp" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXamp</a>
+                        <a href="#" data-tab="research" data-project="OpenXstim" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstim</a>
+                        <a href="#" data-tab="research" data-project="OpenXhand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXhand</a>
+                        <a href="#" data-tab="research" data-project="OpenXwheel" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwheel</a>
+                        <a href="#" data-tab="research" data-project="OpenXstand" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXstand</a>
+                        <a href="#" data-tab="research" data-project="OpenXwalk" class="dropdown-item block px-4 py-2 text-sm text-white hover:bg-red-700 hover:text-white">OpenXwalk</a>
+                        <div class="border-t border-red-800 my-1"></div>
+                        <a href="#" data-tab="research" data-project="research" class="dropdown-item block px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">All Projects</a>
+                    </div>
+                </div>
+                <button id="tab-people-btn" data-tab="people" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contributors</button>
+                <button id="tab-publications-btn" data-tab="publications" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Publications</button>
+                <button id="tab-contact-btn" data-tab="contact" class="tab-button px-4 py-2 rounded-lg text-sm font-medium text-white transition duration-150 hover:bg-red-700 hover:text-white">Contact</button>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md text-white hover:bg-red-700 transition duration-150">
+                <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+
+        <nav id="mobile-nav-menu" class="md:hidden hidden bg-red-900 border-t border-red-800 shadow-lg">
+            <button data-tab="home" class="mobile-nav-item active w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Home</button>
+            <button data-tab="research" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Research</button>
+            <button data-tab="people" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contributors</button>
+            <button data-tab="publications" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Publications</button>
+            <button data-tab="contact" class="mobile-nav-item w-full text-left px-4 py-3 text-white hover:bg-red-700 transition duration-150 text-sm">Contact</button>
+        </nav>
     </header>
     <main class="container mx-auto px-4 flex-grow header-compensation">
-    <div id="content-container">
+        <div id="content-container">
 
             <section id="tab-home" class="tab-content">
                 <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg mb-8">
@@ -41,8 +83,8 @@
                     
                     <div class="slider-container shadow-xl">
                         <img id="slider-image" src="https://openmedtech-lab.github.io/images/OpenXamp.jpg" alt="Featured Project" class="slider-image">
-                        <button id="prev-btn" class="slider-btn prev-btn">❮</button>
-                        <button id="next-btn" class="slider-btn next-btn">❯</button>
+                        <button id="prev-slide-btn" class="slider-btn prev-btn">❮</button>
+                        <button id="next-slide-btn" class="slider-btn next-btn">❯</button>
                     </div>
 
                     <div class="text-center mt-6">
@@ -55,11 +97,9 @@
 
            <section id="tab-research" class="tab-content hidden">
                 <div id="research-content-loader">
-                    </div>
+                </div>
             </section>
 
-            <section id="tab-people" class="tab-content hidden">
-    </section>
             <section id="tab-people" class="tab-content hidden">
                  <div class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
                     <h2 class="text-4xl font-bold text-gray-900 mb-6 border-b pb-2 border-red-100">Meet the Contributors</h2>
@@ -97,7 +137,7 @@
 
                     <ul class="space-y-4">
                         <li class="p-3 border-b border-gray-100 hover:bg-gray-50 rounded-md transition duration-150">
-                            <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003419235-8/mobile-trans-spinal-electrical-stimulation-therapy-spinal-cord-injury-md-akhlasur-rahman-farjana-taoheed-peter-sturgess-alistair-mcewan-monzurul-alam">
+                            <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003419235-8-8/mobile-trans-spinal-electrical-stimulation-therapy-spinal-cord-injury-md-akhlasur-rahman-farjana-taoheed-peter-sturgess-alistair-mcewan-monzurul-alam">
                                 <p class="font-semibold text-lg text-gray-800">
                                     Rahman, M. A., Taoheed, F., Sturgess, P., McEwan, A., & Alam, M. (2025). Mobile Trans-Spinal Electrical Stimulation Therapy for Spinal Cord Injury 
                                     <span class="text-red-700 italic">Automation in Tele-Neurorehabilitation</span>, 1, 1-34. DOI: 10.1201/9781003419235-8 
@@ -150,6 +190,6 @@
         </div>
     </footer>
 
-    <script src=js/script.js></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
