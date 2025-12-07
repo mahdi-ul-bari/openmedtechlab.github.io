@@ -128,3 +128,31 @@
     margin-top: 40px; 
     margin-bottom: 30px;
 }
+/* Container to control the width and position of the text block */
+.lab-info-container {
+    /* 1. **INCREASED WIDTH:** Set a maximum width for the text block. 
+          Using 75% or 800px should make it wider. Let's try 800px for a fixed size. */
+    max-width: 800px; 
+    
+    /* 2. Center the entire block horizontally (margin: 0 auto is short-hand) */
+    margin: 0 auto; 
+    
+    /* 3. **NEW/CONFIRMED:** Center the text lines WITHIN this block */
+    text-align: center; 
+    
+    /* Add some spacing below the text block */
+    margin-bottom: 50px; 
+    
+    /* Ensure there is enough space above the text */
+    margin-top: 40px; 
+}
+
+/* Style for the paragraph element (optional, but good for cleanup) */
+.lab-text-centered {
+    /* Set the text size and line height */
+    font-size: 1.15em;
+    line-height: 1.6;
+    /* Ensure no extra margins are pushing the text */
+    margin-top: 0;
+    margin-bottom: 0;
+}
