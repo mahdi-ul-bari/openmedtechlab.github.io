@@ -107,3 +107,24 @@
     /* Remove the delay when showing the menu so it appears instantly */
     transition-delay: 0s;
 }
+/* Style for the centered horizontal line */
+.section-separator {
+    /* Set a minimum height for visibility (we use the border for the line) */
+    height: 1px; 
+    
+    /* The actual line: a solid border on the bottom */
+    border-bottom: 2px solid #f0c7c7; /* Light pink color */
+    
+    /* 1. **NEW:** Set a specific width for the line. 
+          I recommend a width like 50% or 300px, depending on your design. 
+          Let's use 50% as an example. */
+    width: 50%; 
+    
+    /* 2. **NEW:** Center the block element by setting margin-left and margin-right to auto */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Add some vertical space above and below the line */
+    margin-top: 40px; 
+    margin-bottom: 30px;
+}
