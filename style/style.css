@@ -72,25 +72,32 @@
 
        /* NAVIGATION CIRCUIT TEXTURE CSS - UPDATED WITH PURE CSS GRADIENT */
         .nav-texture {
-    background-color: #000000; /* Solid Black Base */
+    background-color: var(--primary-color); /* Fallback/Base Color */
     
     background-image: 
-        /* Noise Overlay - Removed for clarity during test */
-        /* Circuit Lines Pattern - BRIGHT GREEN LINES */
+        /* Noise/Static Overlay (Slightly increased visibility from 0.05 to 0.08) */
+        repeating-linear-gradient(
+            0deg, 
+            rgba(255, 255, 255, 0.08) 0px, 
+            rgba(255, 255, 255, 0.08) 1px, 
+            transparent 1px, 
+            transparent 2px
+        ),
+        /* Circuit Lines Pattern (Slightly increased visibility from 0.2 to 0.3) */
         repeating-conic-gradient(
             from 45deg,
-            #000000 0%, #000000 25%, /* Black Base */
-            #00ff00 25%, #00ff00 28%, /* BRIGHT GREEN LINES (Increased thickness to 3%) */
-            #000000 28%, #000000 50%  /* Black Base */
+            rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.05) 25%, 
+            rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.3) 27%, /* Increased thickness to 2% and opacity to 30% */
+            rgba(0,0,0,0.05) 27%, rgba(0,0,0,0.05) 50%  
         );
     
-    /* Reduced pattern size for more density */
-    background-size: 20px 20px; 
+    /* Kept at 25px for a dense pattern */
+    background-size: 
+        100% 100%, 
+        25px 25px; 
     
     background-repeat: repeat;
-    
-    /* Blending is removed for this test */
-    /* background-blend-mode: multiply; */ 
+    background-blend-mode: multiply; 
 }
         /* --- DROPDOWN HOVER FIX (CSS) --- */
         /* 1. Initial state for the dropdown menu (hidden and collapsed) */
