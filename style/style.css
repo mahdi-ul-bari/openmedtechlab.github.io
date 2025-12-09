@@ -72,36 +72,26 @@
 
        /* NAVIGATION CIRCUIT TEXTURE CSS - UPDATED WITH PURE CSS GRADIENT */
         .nav-texture {
-            background-color: var(--primary-color); /* Fallback/Base Color */
-            
-            /* NEW: Circuit board pattern using repeating conic and linear gradients */
-            background-image: 
-                /* Noise/Static Overlay (Subtle grain texture) */
-                repeating-linear-gradient(
-                    0deg, 
-                    rgba(255, 255, 255, 0.05) 0px, /* Using white for a subtle texture blend */
-                    rgba(255, 255, 255, 0.05) 1px, 
-                    transparent 1px, 
-                    transparent 2px
-                ),
-                /* Circuit Lines Pattern (Repeating Conic Gradient) */
-                repeating-conic-gradient(
-                    from 45deg,
-                    rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.05) 25%, /* Dark/Transparent Base */
-                    rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 26%, /* Light Circuit Lines (20% opacity) */
-                    rgba(0,0,0,0.05) 26%, rgba(0,0,0,0.05) 50%  /* Dark/Transparent Base */
-                );
-            
-            /* Control the size of the repeating pattern */
-            background-size: 
-                100% 100%, /* Noise Overlay covers the entire element */
-                25px 25px; /* Adjust size for a tighter pattern */
-            
-            background-repeat: repeat;
-            
-            /* This is crucial: it blends the texture (gradients) with the var(--primary-color) */
-            background-blend-mode: multiply; 
-        }
+    background-color: #000000; /* Solid Black Base */
+    
+    background-image: 
+        /* Noise Overlay - Removed for clarity during test */
+        /* Circuit Lines Pattern - BRIGHT GREEN LINES */
+        repeating-conic-gradient(
+            from 45deg,
+            #000000 0%, #000000 25%, /* Black Base */
+            #00ff00 25%, #00ff00 28%, /* BRIGHT GREEN LINES (Increased thickness to 3%) */
+            #000000 28%, #000000 50%  /* Black Base */
+        );
+    
+    /* Reduced pattern size for more density */
+    background-size: 20px 20px; 
+    
+    background-repeat: repeat;
+    
+    /* Blending is removed for this test */
+    /* background-blend-mode: multiply; */ 
+}
         /* --- DROPDOWN HOVER FIX (CSS) --- */
         /* 1. Initial state for the dropdown menu (hidden and collapsed) */
 #projects-menu {
