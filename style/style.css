@@ -79,7 +79,7 @@
     
     /* 💡 NEW: Use the local SVG file as the background image */
     /* Adjust the path '..' if your SVG is in a different location relative to the CSS */
-    background-image: url('images/OpenMedTech.svg');
+    background-image: url('images/OpenMedTech.png');
     
     /* Crucial settings for a repeating texture: */
     background-repeat: repeat;
