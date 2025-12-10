@@ -16,7 +16,7 @@
         /* Class to compensate for the sticky header height (approx 80px-100px tall) */
         .header-compensation {
             /* Adjusted based on your desktop header's observed height */
-            padding-top: 100px; 
+            padding-top: 300px; 
         }
 
         /* Active state for main navigation buttons */
@@ -78,7 +78,7 @@
     color: #F0F4F8; /* Light gray text for contrast */
     
     /* 💡 Check the image path again! Assuming 'images/OpenMedTech.png' is correct. */
-    background-image: url('../images/OpenMedTech.png');
+   /* background-image: url('../images/OpenMedTech.png');
     
     /* Crucial settings for a repeating texture: */
     background-repeat: no-repeat;
