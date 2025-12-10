@@ -16,7 +16,7 @@
         /* Class to compensate for the sticky header height (approx 80px-100px tall) */
         .header-compensation {
             /* Adjusted based on your desktop header's observed height */
-            padding-top: 300px; 
+            padding-top: 50px; 
         }
 
         /* Active state for main navigation buttons */
